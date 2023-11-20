@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="64dp">
+
+        <ImageView
+            android:id="@+id/id_avatar"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:layout_marginTop="64dp"
+            android:contentDescription="@null"
+            android:src="@drawable/img_avatar" />
+
+        <TextView
+            style="@style/ProfileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/profile_user_name"
+            android:textAlignment="center" />
+
+        <TextView
+            style="@style/ProfileTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="@string/profile_user_email"
+            android:textAlignment="center" />
+
+        <Button
+            android:id="@+id/btn_share"
+            style="@style/AppButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/share"
+            android:textAppearance="@style/ProfileButtonTextAppearance" />
+
+        <Button
+            android:id="@+id/btn_send_via_email"
+            style="@style/AppButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/send_via_email"
+            android:textAppearance="@style/ProfileButtonTextAppearance" />
+
+        <Button
+            android:id="@+id/btn_call"
+            style="@style/AppButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/call"
+            android:textAppearance="@style/ProfileButtonTextAppearance" />
+
+        <Button
+            android:id="@+id/btn_camera"
+            style="@style/AppButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/launch_camera"
+            android:textAppearance="@style/ProfileButtonTextAppearance" />
+
+    </LinearLayout>
+
+</ScrollView>
