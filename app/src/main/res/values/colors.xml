@@ -6,4 +6,9 @@
     <color name="button_bg">#F5F5F5</color>
     <color name="hint">#808080</color>
     <color name="error">#F91717</color>
+    <color name="pressed_pin_button_background">#E17171</color>
+    <color name="pressed_pin_button_border">#E80A0A</color>
+    <color name="pressed_pin_button_text">#CCD9E2</color>
+    <color name="pressed_ok_button_back_start_end">#17DB5A</color>
+    <color name="pressed_ok_button_back_center">#CC00FE25</color>
 </resources>

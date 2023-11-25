@@ -1,14 +1,20 @@
 package kz.jusan.homework6
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
+import android.os.VibratorManager
 import android.util.Log
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 const val CORRECT_PIN = "1567"
@@ -20,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var pinText = ""
     private var pinTextOnSave = ""
     lateinit var tvPin: TextView
+    lateinit var animShake: Animation
+    lateinit var vibrator: Vibrator
 
     var pinTextColor: Int = Color.BLACK
     var errorColor: Int = Color.BLACK
@@ -27,11 +35,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initVibrationAndShake()
         initColors()
         initTvPin()
         initNumButtons()
         initBackspaceButton()
         initOkButton()
+    }
+
+    private fun initVibrationAndShake() {
+        animShake = AnimationUtils.loadAnimation(this, R.anim.shake)
+        val vibratorManager = getSystemService(Context.VIBRATOR_MANAGER_SERVICE) as VibratorManager
+        vibrator = vibratorManager.defaultVibrator
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
@@ -57,6 +72,11 @@ class MainActivity : AppCompatActivity() {
             pinText = pinText.dropLast(1)
             updatePinTextView()
         }
+        btnBackspace.setOnLongClickListener() {
+            pinText = ""
+            updatePinTextView()
+            true
+        }
     }
 
     private fun initOkButton() {
@@ -74,6 +94,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         } else {
             tvPin.setTextColor(errorColor)
+            tvPin.startAnimation(animShake)
+            vibrator.vibrate(
+                VibrationEffect.createOneShot(
+                    500, VibrationEffect.DEFAULT_AMPLITUDE
+                )
+            )
         }
     }
 
